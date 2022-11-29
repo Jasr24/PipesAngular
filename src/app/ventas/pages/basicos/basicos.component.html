@@ -1,0 +1,92 @@
+
+
+
+<div class="text-layout">
+    <h1>Pipes Básicos</h1>
+    <p>
+        Pipes incluidos en Angular - Usualmente en el Common Module
+    </p>
+
+</div>
+
+<div class="p-grid">
+
+    <div class="p-col-4">
+        <p-card header="uppercase"
+                [subheader]="nombreUpper">
+            {{nombreUpper | uppercase}}<br><br>
+            Pone el string que se le envie en mayuscula
+        </p-card>        
+    </div>
+
+    <div class="p-col-4">
+        <p-card header="lowercase"
+                [subheader]="nombreLower">
+            {{nombreLower | lowercase}} <br><br>
+            Pone el string que se le envie en minuscula
+        </p-card>  
+    </div>
+
+    <div class="p-col-4">
+        <p-card header="titlecase"
+                [subheader]="nombreCompleto">
+            {{nombreCompleto | titlecase}} <br><br>
+            Primer letra cada palabra en mayuscula
+        </p-card>
+    </div>
+
+</div>
+
+<br>
+
+<div class="text-layout">
+    <h1>Date | Fecha | Pipe</h1>
+    <p>
+        Pipes para mostrar las fechas
+    </p>
+
+</div>
+
+<div class="p-grid">
+
+    <div class="p-col-6">
+        <p-card>
+            <ul>
+                <li>fecha sin formato -></li>
+                <li>fecha | date -></li>
+                <li>fecha | date:'short', argumento documentacion angular -></li>
+                <li>fecha | date:'long', argumento documentacion angular -></li>
+                <li>fecha | date:'LLLL dd, YYYY', PROPIO con la documentacion angular -></li>
+            </ul>
+
+            <hr>
+
+            <ul>
+                <li>fecha | date:'long':'GMT-6':'GMT-6', con otra zona horaria -></li>
+                <li>fecha | date:'long':'GMT-6':'GMT-4', con otra zona horaria -></li>
+                <li>fecha | date:'long':'':'fr', Cambio idioma, pa otros idiomas mira arc. AppModule-></li>
+            </ul>
+        </p-card>        
+    </div>
+
+    <div class="p-col-6">
+        <p-card>
+            <ul>
+                <li>{{fecha}}</li>
+                <li>{{fecha | date}}</li>
+                <li>{{fecha | date:'short'}}</li>
+                <li>{{fecha | date:'long'}}</li>
+                <li>{{fecha | date:'LLLL dd, YYYY'}}</li>
+            </ul>
+
+            <hr>
+
+            <ul>
+                <li>{{fecha | date:'long':'GMT-6'}}</li>
+                <li>{{fecha | date:'long':'GMT-4'}}</li>
+                <li>{{fecha | date:'long':'':'fr'}}</li> <!-- Primero tenemos que registrar el idioma en el appModule o donde quiera-->
+            </ul>
+        </p-card>        
+    </div>
+
+</div>

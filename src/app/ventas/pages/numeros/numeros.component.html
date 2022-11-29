@@ -1,0 +1,36 @@
+
+<div class="text-layout">
+    <h1>Pipes DecimalPipe y Porcentaje</h1>
+    <p>
+        Pipes incluidos en Angular - Usualmente en el Common Module
+    </p>
+
+</div>
+
+<div class="p-grid">
+    <div class="p-col-4">
+        <p-card header="Ventas Netas"
+                subheader="del presente año">
+        <i class="pi pi-dollar"></i>
+        {{(ventasNetas + 1000000) | number:'1.2-2' }} <!--1.2-2 = 1 toda la parte entera y 2-2 siempre dos decimales  -->
+        </p-card>
+    </div>
+
+    <div class="p-col-4">
+        <p-card header="Ventas Brutas"
+                subheader="del presente año">
+        {{(ventasNetas + 2000000) | currency }} <!--Pone por defecto USD  --> <br>
+        {{(ventasNetas + 2000000) | currency:'Pesos' }} <!--Puedes poner algunque nesesite segun el pais --> <br>
+        {{(ventasNetas + 2000000) | currency:'CAD':'symbol-narrow':'1.0-4'}} <!--Puedes poner el simbolo que nesesite segun el pais de 0 a 4 decimales-->
+        </p-card>
+    </div>
+
+    <div class="p-col-4">
+        <p-card header="Ventas Brutas"
+                subheader="Ganacia porcentual">
+        {{porcentaje}} y utilizamos el pipe percent pa que se vea asi: <!--  --> <br>
+        {{porcentaje | percent}}; ahora si se quiere con decimales le agregamos :'2.2-2' para dos decumales y queda asi:<!--  --><br>
+        {{porcentaje | percent:'2.2-2'}} <!--dos numeros enteros y dos decimales siempre --> 
+        </p-card>
+    </div>
+</div>

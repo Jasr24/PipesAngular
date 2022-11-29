@@ -1,0 +1,104 @@
+
+<div class="text-layout">
+    <h1>Pipes personalizados</h1>
+    <p>
+        Pipes creados por {{'nosotros'| mayusculas:enMayusculas}}
+    </p>
+
+    
+
+</div>
+
+
+<p-toolbar>
+    <div class="p-toolbar-group-left"></div>
+    
+    <div class="p-toolbar-group-right">
+
+        <button pButton 
+            label="toggle mayusculas" 
+            class="p-mr-1 p-button-warning"
+            (click)="cambiarFuente()">
+        </button>
+
+        <button pButton
+                icon="pi pi-sort"
+                label="Por nombre"
+                class="p-mr-1"
+                (click)="cambiarOrden('nombre')">
+        </button>
+
+        <button pButton
+                icon="pi pi-sort"
+                label="Vuela"
+                class="p-mr-1 p-button-success"
+                (click)="cambiarOrden('vuela')">
+        </button>
+
+        <button pButton
+                icon="pi pi-sort"
+                label="Por color"
+                class="p-mr-1 p-button-danger"
+                (click)="cambiarOrden('color')">
+        </button>
+    </div>
+</p-toolbar>
+
+
+<div class="p-grid">
+    <div class="p-col p-mt-2">
+        
+        <table class="text-layout">
+
+            <tr>
+                <th class="ancho">Nombre</th>
+                <th class="ancho">Vuela</th>
+                <th class="ancho">Color</th>
+            </tr>
+
+            <tr *ngFor="let item of heroes | ordenar:ordenarPor">
+                <td class="ancho">{{item.nombre}}</td>
+                <td class="ancho">{{item.vuela | vuela | titlecase}}</td>
+                <td class="ancho">{{item.color}}</td>
+            </tr>
+
+
+        </table>
+
+
+    </div>
+</div>
+
+
+
+
+<!--    
+<div class="text-layout">
+    <h1>Pipes personalizados</h1>
+    <p>
+        Pipes creados por nosotros mismos
+    </p>
+    <br><br>
+
+
+    <div class="p-grid">
+
+        <div class="p-col-4">
+            <p-card header="Cambiar mayusculas - minusculas">
+                <p>
+                    {{'Cambiar fuente de mayusculas a minusculas y viseversa'| mayusculas:enMayusculas}}
+                </p>
+            
+                <button pButton 
+                        type="button" 
+                        label="toggle mayusculas" 
+                        class="p-button-help"
+                        (click)="cambiarFuente()">
+                </button>
+            </p-card>
+        </div>
+        
+    </div>
+
+</div>
+-->

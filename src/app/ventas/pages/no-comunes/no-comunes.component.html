@@ -1,0 +1,89 @@
+
+<div class="text-layout">
+    <h1>Pipes no tan comunes</h1>
+    <p>
+        Pipes incluidos en Angular - Usualmente en el Common Module
+    </p>
+</div>
+
+<div class="p-grid">
+
+    <div class="p-col p-md-6 p-sm-9">
+        <p-fieldset legend="i18nSelect Pipe" [toggleable]="true"> <!-- -->
+            <p>
+                Para que modifique palabras con genero adecuado <br><br>
+                
+                Saludos {{nombre}}, es un placer 
+                {{genero | i18nSelect:invitacionMapa}} 
+                a nuestro evento.
+            </p>
+            <button pButton type="button" 
+                    label="Cambiar persona" 
+                    class="p-button-success"
+                    (click)="cambiarCliente()">
+            </button>
+
+        </p-fieldset>
+    </div>
+
+    <div class="p-col p-md-6 p-sm-9">
+        <p-fieldset legend="i18nSPlural Pipe" [toggleable]="true"> <!-- -->
+            <p>
+                Actualmente {{clientes.length | i18nPlural:clientesMapa}}
+            </p>
+            <button pButton type="button" 
+                    label="Borrar cliente"
+                    class="p-button-help"
+                    (click)="borrarCliente()">
+            </button>
+        </p-fieldset>
+    </div>
+
+    <div class="p-col p-md-6 p-sm-9">
+        <p-fieldset legend="Slice Pipe" [toggleable]="true"> <!--Es para que se actualizara, detecta cambios en este ejemplo detecta si se elimina algo del arreglo y actualiza -->
+            <b>Original</b>
+            <pre>{{clientes}}</pre> <!--pre es para que aparesca en el html vista-- como un tipo de codigo-->
+
+            <!--Funciona tambien con String por el numero de caracteres-->
+            <b>slice:0</b> <!--Muestra todo el arreglo y lo va actualizando a medida que se eliminen o agreguen-->
+            <pre>{{clientes | slice:0}}</pre>
+
+            <b>slice:0:2</b>  <!--Muestra el arreglo desde la posicion  a la 2 exclusive-->
+            <pre>{{clientes | slice:1:2}}</pre>
+        </p-fieldset>
+    </div>
+
+    <div class="p-col p-md-6 p-sm-9">
+        <p-fieldset legend="Json Pipe" [toggleable]="true">
+
+            <pre>
+                {{heroes | json}}
+            </pre>
+
+        </p-fieldset>
+    </div>
+
+    <div class="p-col p-md-6 p-sm-9">
+        <p-fieldset legend="KeyValue Pipe" [toggleable]="true">
+
+            <ul>
+                <!--No utilizamos el ngFor normal por que es un objeto literal y no un arreglo, lo utilizamos con el kwyValue-->
+                <li *ngFor="let item of persona | keyvalue">
+                    <b>{{item.key | titlecase}}</b> - {{item.value}}
+                </li>
+            </ul>
+
+        </p-fieldset>
+    </div>
+
+    <div class="p-col p-md-6 p-sm-9">
+        <p-fieldset legend="Async Pipe" [toggleable]="true">
+
+            <pre>Observable: {{miObservable | async}}</pre>
+            <pre *ngIf="!(valorPromesa | async)">Resolviendo promesa</pre>
+            <pre>Promesa: {{valorPromesa | async}}</pre>
+
+        </p-fieldset>
+    </div>
+    
+</div>
